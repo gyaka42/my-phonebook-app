@@ -1,0 +1,16 @@
+Phonebook App:
+
+A. What is needed (Dependency`s)
+    1. Json-Server. +
+    2. Axios for database connection. +
+    3. Will try to implement React Router Dom. +
+
+B. Steps to take:
+    1. Retrieve the contact data from db.json with useEffect +
+    2. put the fetched data in a useState +
+    3. Display the example data that was put in a useState on screen. +
+    4. Delete a contact and try to re render the page. +
+    5. With React Router Dom create new page for Add Contact +
+    6. Force phone number format on Add Contact Page & Add back button +
+    7. Create new page for Editing current Contact.
+    
