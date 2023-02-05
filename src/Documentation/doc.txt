@@ -12,5 +12,7 @@ B. Steps to take:
     4. Delete a contact and try to re render the page. +
     5. With React Router Dom create new page for Add Contact +
     6. Force phone number format on Add Contact Page & Add back button +
-    7. Create new page for Editing current Contact.
+    7. Create new page for Editing current Contact.+
+    8. implement React Phone Input component +
+    9. Style the pages +
     

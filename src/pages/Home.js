@@ -24,9 +24,11 @@ const Home = () => {
     return (
         <div className="container my-5 w-50">
             <div>
-            <Header />
-            <ListContacts contacts={contacts} reRender={reRender} setReRender={setReRender} />
+                <Header />
+                <ListContacts contacts={contacts} reRender={reRender} setReRender={setReRender} />
             </div>
+
+
         </div>
     )
 }

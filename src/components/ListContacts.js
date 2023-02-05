@@ -22,7 +22,16 @@ const ListContacts = ({ contacts, reRender, setReRender }) => {
                     {contacts.length === 0 ? (<>
                         <tr>
                             <td>
-                                Contacts list is empty !
+                                <h5>Contact list is empty !</h5>
+                            </td>
+                            <td>
+                            <h5>*</h5>
+                            </td>
+                            <td>
+                            <h5>*</h5>
+                            </td>
+                            <td>
+                            <h5>*</h5>
                             </td>
                         </tr>
                   </>  ) : (
