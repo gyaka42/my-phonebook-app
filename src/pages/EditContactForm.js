@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Header from "../components/Header";
 
 import PhoneInput from "react-phone-number-input";
@@ -15,7 +15,6 @@ const EditContactForm = () => {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [phonenumber, setphonenumber] = useState("")
-    console.log(params)
 
     useEffect(() => {
         axios.get(`http://localhost:3004/contacts/${params.contactId}`)
@@ -26,7 +25,7 @@ const EditContactForm = () => {
                 setphonenumber(res.data.phonenumber)
             })
             .catch(err => {
-                console.log(err);
+                alert("An Error Occured during fetching the contact information.")
             })
     }, [])
 
@@ -76,7 +75,7 @@ const EditContactForm = () => {
                         <label htmlFor="lastName" className="form-label">Lastname</label>
                         <input type="text" className="form-control" id="lastName" placeholder="Example: Doe" value={lastName} onChange={(event) => setLastName(event.target.value)} />
                     </div>
-
+                    
                     {/* <div className="mb-3">
                         <label htmlFor="phonenumber" className="form-label">Phone Number</label>
                         <input type="tel" pattern="[+]{1}[0-9]{11,11}" className="form-control" id="phonenumber" placeholder="Example: +31612345678" value={phonenumber} onChange={(event) => setphonenumber(event.target.value)} />
@@ -94,7 +93,9 @@ const EditContactForm = () => {
 
                     <div className="d-flex justify-content-center align-items-center gap-4 mt-4">
                         <button type="submit" className="btn btn-primary ">Update</button>
-                        <button onClick={() => navigate("/")} className="btn btn-danger">Back</button>
+                        <Link to="/">
+                        <button className="btn btn-danger">Back</button>
+                        </Link>
                     </div>
                 </form>
             </div>
