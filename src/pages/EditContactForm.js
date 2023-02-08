@@ -27,7 +27,7 @@ const EditContactForm = () => {
       .catch((err) => {
         alert("An Error Occured during fetching the contact information.");
       });
-  }, []);
+  },[]);
 
   const checkContact = (event) => {
     event.preventDefault();

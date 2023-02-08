@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', 'Maven Pro', sans-serif !important;
+  }
+
 .PhoneInputInput{
     border: 1px solid rgb(221, 221, 221);
     box-sizing: border-box;

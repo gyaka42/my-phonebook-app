@@ -3,6 +3,7 @@ import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
 
 const ListContacts = ({ contacts, reRender, setReRender }) => {
+  contacts.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
   return (
     <div className="container-fluid m-5">
       <table className="table container-fluid">

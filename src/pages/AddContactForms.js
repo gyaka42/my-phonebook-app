@@ -64,22 +64,22 @@ const AddContactForms = () => {
                 <p className="fw-bold fs-4 text-center">Contact Information.</p>
                 <form onSubmit={saveContact}>
                     <div className="mb-3">
-                        <label htmlFor="firstName" className="form-label">Firstname</label>
-                        <input type="text" className="form-control" id="firstName" placeholder="Example: John" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+                        <label htmlFor="firstName" className="form-label">Firstname:</label>
+                        <input type="text" className="form-control form" id="firstName" placeholder="Example: John" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="lastName" className="form-label">Lastname</label>
+                        <label htmlFor="lastName" className="form-label">Lastname:</label>
                         <input type="text" className="form-control" id="lastName" placeholder="Example: Doe" value={lastName} onChange={(event) => setLastName(event.target.value)} />
                     </div>
 
-                    {/* THIS WAS MY FIRST INPUT FIELD
+                    {/* THIS WAS MY INITIAL INPUT FIELD
                      <div className="mb-3">
                         <label htmlFor="phonenumber" className="form-label">Phone Number</label>
                         <input type="tel" pattern="[+]{1}[0-9]{11,11}" className="form-control" id="phonenumber" placeholder="Example: +31612345678" value={phonenumber} onChange={(event) => setphonenumber(event.target.value)} />
                     </div> */}
                     
                     <div>
-                    <p>Phone Number</p>
+                    <p>Phone Number:</p>
                     </div>
                     <PhoneInput 
                     value={phonenumber}
