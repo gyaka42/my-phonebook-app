@@ -27,7 +27,7 @@ const EditContactForm = () => {
       .catch((err) => {
         alert("An Error Occured during fetching the contact information.");
       });
-  },[]);
+  }, []);
 
   const checkContact = (event) => {
     event.preventDefault();
@@ -90,12 +90,6 @@ const EditContactForm = () => {
               onChange={(event) => setLastName(event.target.value)}
             />
           </div>
-
-          {/* <div className="mb-3">
-                        <label htmlFor="phonenumber" className="form-label">Phone Number</label>
-                        <input type="tel" pattern="[+]{1}[0-9]{11,11}" className="form-control" id="phonenumber" placeholder="Example: +31612345678" value={phonenumber} onChange={(event) => setphonenumber(event.target.value)} />
-                    </div> */}
-
           <div>
             <p>Phone Number</p>
           </div>

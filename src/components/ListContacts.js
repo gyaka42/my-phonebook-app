@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
+import "../styles/listContacts.css";
 
 const ListContacts = ({ contacts, reRender, setReRender }) => {
-  contacts.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredContacts = contacts.filter((contact) =>
+    `${contact.firstName} ${contact.lastName} ${contact.phonenumber}`
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
+  );
+
+  filteredContacts.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
+
+  const handleSearchQueryChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div className="container-fluid m-5">
+      <div className="container d-flex mb-3">
+        <input
+          className="px-3 rounded-4 border border-3 inputField"
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={handleSearchQueryChange}
+        />
+      </div>
       <table className="table container-fluid">
         <thead>
           <tr>
@@ -17,41 +40,28 @@ const ListContacts = ({ contacts, reRender, setReRender }) => {
           </tr>
         </thead>
         <tbody>
-          {contacts.length === 0 ? (
-            <>
-              <tr>
+          {filteredContacts.length === 0 ? (
+            <tr>
+              <td colSpan="5">
+                <h5>No contacts found!</h5>
+              </td>
+            </tr>
+          ) : (
+            filteredContacts.map((contact, index) => (
+              <tr key={contact.id}>
+                <th scope="row">{index + 1}</th>
+                <td>{contact.firstName}</td>
+                <td>{contact.lastName}</td>
+                <td>{contact.phonenumber}</td>
                 <td>
-                  <h5>Contact list is empty !</h5>
-                </td>
-                <td>
-                  <h5>*</h5>
-                </td>
-                <td>
-                  <h5>*</h5>
-                </td>
-                <td>
-                  <h5>*</h5>
+                  <SingleContact
+                    contacts={contact}
+                    reRender={reRender}
+                    setReRender={setReRender}
+                  />
                 </td>
               </tr>
-            </>
-          ) : (
-            <>
-              {contacts.map((contacts, index) => (
-                <tr key={contacts.id}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{contacts.firstName}</td>
-                  <td>{contacts.lastName}</td>
-                  <td>{contacts.phonenumber}</td>
-                  <td>
-                    <SingleContact
-                      contacts={contacts}
-                      reRender={reRender}
-                      setReRender={setReRender}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </>
+            ))
           )}
         </tbody>
       </table>
